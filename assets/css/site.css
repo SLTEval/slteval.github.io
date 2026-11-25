@@ -81,9 +81,10 @@ body[data-page="about"] .prose .tagline{font-family:var(--sans);font-weight:600;
  .site-navbar .navbar-nav{gap:0;padding:10px 0 18px}
  .site-navbar .nav-link{padding:10px 0;font-size:1rem}
  .site-navbar .nav-link[aria-current=page]::after{bottom:4px;right:auto;width:30px}
- .site-navbar .navbar-collapse{max-height:calc(100dvh - 76px);overflow-y:auto}
+ .site-navbar .navbar-collapse{position:absolute;top:100%;left:0;right:0;padding-inline:40px;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(12,35,64,.1);max-height:calc(100dvh - 76px);overflow-y:auto;overscroll-behavior:contain}
  .site-navbar .navbar-collapse.collapsing{overflow:hidden}
 }
+@media(max-width:640px){.site-navbar .navbar-collapse{padding-inline:20px}}
 
 .about-layout{display:grid;grid-template-columns:minmax(0,720px) minmax(270px,1fr);gap:64px;align-items:start}
 .about-layout>.prose{min-width:0}
