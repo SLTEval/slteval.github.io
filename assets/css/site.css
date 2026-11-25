@@ -41,13 +41,13 @@
 .hero-details li{padding-inline:26px;border-left:2px solid rgba(227,233,240,.65)}
 .hero-details li:last-child{color:var(--hero-light);font-size:1.05rem;font-weight:650;padding-right:0;text-shadow:0 1px 2px rgba(12,35,64,.35)}
 .hero-details li:first-child{border-left:0;padding-left:0}
-.home-hero>.actions{justify-content:flex-start;gap:12px}
-.home-hero .button{padding-inline:20px;border-color:transparent;background:var(--hero-light);color:var(--navy)}
-.home-hero .button:hover,.home-hero .button:focus-visible{border-color:transparent;background:#d5dee8;color:var(--navy)}
-.home-hero .button:active{border-color:transparent;background:#c8d3e0;color:var(--navy)}
-.home-hero .button-outline{background:rgba(227,233,240,.16);color:var(--hero-light)}
-.home-hero .button-outline:hover,.home-hero .button-outline:focus-visible{border-color:transparent;background:rgba(227,233,240,.26);color:var(--hero-light)}
-.home-hero .button-outline:active{border-color:transparent;background:rgba(227,233,240,.32);color:var(--hero-light)}
+.home-hero>.actions{justify-content:flex-start;gap:24px}
+.home-hero .button{padding-inline:22px;border-color:transparent;background:var(--gold);color:var(--navy)}
+.home-hero .button:hover,.home-hero .button:focus-visible{border-color:transparent;background:#ffcf2f;color:var(--navy)}
+.home-hero .button:active{border-color:transparent;background:#e4af00;color:var(--navy)}
+.hero-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 22px;border:1px solid var(--hero-light);border-radius:5px;background:var(--hero-light);font-size:.9rem;font-weight:600;color:var(--navy);text-decoration:none;transition:background-color .15s,color .15s}
+.hero-secondary:hover,.hero-secondary:focus-visible{background:#d5dee8;color:var(--navy);text-decoration:none}
+.hero-secondary:active{background:#c8d3e0;color:var(--navy)}
 .hero-organizer{margin:24px 0 0;color:var(--hero-light);font-size:.875rem}
 .hero-photo-credit{position:absolute;right:16px;bottom:12px;margin:0;padding:4px 9px;border-radius:3px;background:rgba(227,233,240,.94);color:var(--muted);font-size:.75rem;line-height:1.5}
 .hero-photo-credit a{color:var(--ink)}
