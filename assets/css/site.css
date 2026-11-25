@@ -87,6 +87,8 @@ body[data-page="about"] .prose .tagline{font-family:var(--sans);font-weight:600;
 
 .about-layout{display:grid;grid-template-columns:minmax(0,720px) minmax(270px,1fr);gap:64px;align-items:start}
 .about-layout>.prose{min-width:0}
+.about-copy p{line-height:1.8;margin-bottom:26px}
+.about-copy strong{color:var(--navy);font-weight:700}
 .about-graphic{margin:70px 0 0;position:sticky;top:120px}
 .about-graphic img{display:block;width:100%;height:auto}
 @media(max-width:1000px){.about-layout{grid-template-columns:minmax(0,1fr) 280px;gap:32px}}
