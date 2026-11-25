@@ -3,6 +3,7 @@
   <desc id="desc">1st Speech and Language Technologies Evaluation Workshop. May 14, 2027, Macau, China. Co-located with COLING 2027. Organized by LTRC, IIIT Hyderabad.</desc>
   <metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description rdf:about=""><dc:creator>Background photograph: kewl.lu (Tristan Schmurr)</dc:creator><dc:source>https://commons.wikimedia.org/wiki/File:Macau_-_Skyline.jpg</dc:source><dc:rights>Background photo licensed CC BY 2.0: https://creativecommons.org/licenses/by/2.0/ . Cropped, resized, and faded beneath workshop text.</dc:rights></rdf:Description></rdf:RDF></metadata>
   <defs>
+    <filter id="year-shadow" x="-25%" y="-30%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0c2340" flood-opacity=".65"/></filter>
     <linearGradient id="photo-fade" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
       <stop offset=".24" stop-color="#fff" stop-opacity=".86"/>
@@ -17,7 +18,7 @@
   <g font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
     <path d="M68 70h48" stroke="#f8c104" stroke-width="5"/>
     <text x="136" y="77" font-size="19" font-weight="700" letter-spacing="2" fill="#0c2340">CO-LOCATED WITH COLING 2027</text>
-    <text x="64" y="232" font-size="132" font-weight="800" letter-spacing="-7" fill="#0c2340">SLT-Eval <tspan fill="#f8c104">2027</tspan></text>
+    <text x="64" y="232" font-size="132" font-weight="800" letter-spacing="-7" fill="#0c2340">SLT-Eval <tspan fill="#ffd600" filter="url(#year-shadow)">2027</tspan></text>
     <text x="68" y="303" font-size="32" font-weight="600" fill="#0c2340">1st Speech and Language Technologies Evaluation Workshop</text>
     <path d="M70 352v72" stroke="#f8c104" stroke-width="5"/>
     <text x="91" y="381" font-size="34" font-weight="800" fill="#0c2340">Beyond Proxy Metrics:</text>
