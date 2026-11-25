@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#0c2340"/><path fill="#f8c104" d="M7 24h3v3h-3zM10 24h3v3h-3zM13 24h3v3h-3zM16 24h3v3h-3zM19 24h3v3h-3zM7 27h3v3h-3zM7 30h3v3h-3zM10 30h3v3h-3zM13 30h3v3h-3zM16 30h3v3h-3zM19 30h3v3h-3zM19 33h3v3h-3zM7 36h3v3h-3zM10 36h3v3h-3zM13 36h3v3h-3zM16 36h3v3h-3zM19 36h3v3h-3zM25 24h3v3h-3zM25 27h3v3h-3zM25 30h3v3h-3zM25 33h3v3h-3zM25 36h3v3h-3zM28 36h3v3h-3zM31 36h3v3h-3zM34 36h3v3h-3zM37 36h3v3h-3zM43 24h3v3h-3zM46 24h3v3h-3zM49 24h3v3h-3zM52 24h3v3h-3zM55 24h3v3h-3zM49 27h3v3h-3zM49 30h3v3h-3zM49 33h3v3h-3zM49 36h3v3h-3z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SLT-Eval 2027">
+  <rect x="1" y="1" width="126" height="126" rx="22" fill="#0c2340" stroke="#0c2340" stroke-width="2"/>
+  <g text-anchor="middle" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="800">
+    <text x="64" y="53" font-size="27" letter-spacing="-1" fill="#fff">SLT-Eval</text>
+    <text x="64" y="99" font-size="44" letter-spacing="-2" fill="#f8c104">2027</text>
+  </g>
+</svg>
