@@ -90,4 +90,12 @@ body[data-page="about"] .prose .tagline{font-family:var(--sans);font-weight:600;
 .about-graphic{margin:70px 0 0;position:sticky;top:120px}
 .about-graphic img{display:block;width:100%;height:auto}
 @media(max-width:1000px){.about-layout{grid-template-columns:minmax(0,1fr) 280px;gap:32px}}
-@media(max-width:800px){.about-layout{grid-template-columns:1fr;gap:36px}.about-graphic{position:static;margin:0 auto;max-width:360px;width:100%}}
+@media(max-width:800px){
+  .about-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+  .about-layout>.prose{display:contents}
+  .about-layout .tagline{order:0}
+  body[data-page="about"] .about-layout .tagline{margin-bottom:0}
+  .about-copy{order:2;min-width:0}
+  .about-graphic{order:1;position:static;margin:0 auto;width:260px;max-width:100%}
+  .about-graphic img{height:170px;object-fit:cover;object-position:center}
+}
