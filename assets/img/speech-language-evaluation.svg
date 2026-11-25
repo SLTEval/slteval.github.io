@@ -1,18 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="360" height="410" viewBox="0 0 360 410" role="img" aria-labelledby="title desc">
-  <title id="title">Speech and language evaluation</title>
-  <desc id="desc">A speech waveform and language patterns connect to human judgment: understanding, generation, and interaction. A conceptual illustration, not measured results.</desc>
-  <g font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-    <text x="38" y="36" font-size="15" font-weight="600" fill="#52667d">Speech</text>
-    <path d="M38 82h19l7-12 8 26 8-42 8 54 9-77 9 94 9-68 9 42 9-25 8 8h28" fill="none" stroke="#0c2340" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M194 82h18c39 0 56 29 56 67" fill="none" stroke="#c8d3df" stroke-width="1.5"/>
-    <text x="38" y="166" font-size="15" font-weight="600" fill="#52667d">Language</text>
-    <g fill="#0c2340"><rect x="38" y="187" width="36" height="7" rx="3.5"/><rect x="82" y="187" width="67" height="7" rx="3.5"/><rect x="157" y="187" width="31" height="7" rx="3.5"/><rect x="38" y="206" width="62" height="7" rx="3.5"/><rect x="108" y="206" width="28" height="7" rx="3.5"/><rect x="144" y="206" width="44" height="7" rx="3.5"/></g>
-    <path d="M211 200h29c16 0 28-12 28-28v-23" fill="none" stroke="#c8d3df" stroke-width="1.5"/>
-    <circle cx="268" cy="149" r="5" fill="#f8c104"/>
-    <path d="M268 154v130H63" fill="none" stroke="#c8d3df" stroke-width="1.5"/>
-    <g fill="#fff" stroke="#0c2340" stroke-width="1.5"><circle cx="63" cy="284" r="5"/><circle cx="160" cy="284" r="5"/><circle cx="257" cy="284" r="5"/></g>
-    <path d="M63 299v21m97-21v21m97-21v21" stroke="#f8c104" stroke-width="2"/>
-    <g text-anchor="middle" font-size="14" fill="#52667d"><text x="63" y="343">Understanding</text><text x="160" y="343">Generation</text><text x="257" y="343">Interaction</text></g>
-    <text x="160" y="387" text-anchor="middle" font-size="18" font-weight="650" fill="#0c2340">Human judgment</text>
+  <title id="title">Speech and language</title>
+  <desc id="desc">A studio microphone with a detailed grille sits beside a layered chat bubble. Sound waves draw outward in sequence, while three dots type into the bubble.</desc>
+  <style>
+    .sound-wave{stroke-dasharray:1;stroke-dashoffset:1;opacity:0;transform-origin:128px 174px;animation:wave-outward 2.4s ease-out infinite}
+    .wave-middle{animation-delay:.24s}
+    .wave-outer{animation-delay:.48s}
+    .typing-reveal{animation:typing-dots 2.4s steps(3,end) infinite}
+    @keyframes wave-outward{
+      0%,8%{stroke-dashoffset:1;opacity:0;transform:scale(.94)}
+      18%{opacity:1}
+      38%,58%{stroke-dashoffset:0;opacity:1;transform:scale(1)}
+      82%,100%{stroke-dashoffset:0;opacity:0;transform:scale(1.05)}
+    }
+    @keyframes typing-dots{0%,12%{width:0}58%,84%{width:44px}85%,100%{width:0}}
+    @media(prefers-reduced-motion:reduce){
+      .sound-wave{animation:none;stroke-dashoffset:0;opacity:.8;transform:none}
+      .typing-reveal{animation:none;width:44px}
+    }
+  </style>
+  <defs><clipPath id="dots-clip"><rect class="typing-reveal" x="211" y="237" width="44" height="32"/></clipPath></defs>
+  <g id="speaking-microphone" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="115" y="133" width="26" height="52" rx="13" fill="#f0f4f8" stroke="#0c2340" stroke-width="3.5"/>
+    <path d="M123 144h10m-13 8h16m-16 8h16m-13 8h10" stroke="#0c2340" stroke-width="1.8"/>
+    <path d="M124 178h8" stroke="#f8c104" stroke-width="3"/>
+    <path d="M106 164v12a22 22 0 0 0 44 0v-12m-22 34v14m-12 0h24" stroke="#0c2340" stroke-width="3.5"/>
+    <path d="M119 217h18" stroke="#f8c104" stroke-width="3"/>
+    <g stroke="#f8c104" stroke-width="3.5">
+      <path class="sound-wave" pathLength="1" d="M99 142q-14 20 0 41m58-41q14 20 0 41"/>
+      <path class="sound-wave wave-middle" pathLength="1" d="M85 131q-23 31 0 63m86-63q23 31 0 63"/>
+      <path class="sound-wave wave-outer" pathLength="1" d="M72 120q-33 43 0 87m112-87q33 43 0 87"/>
+    </g>
+  </g>
+  <g id="chat-bubble" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M202 230h70a14 14 0 0 1 14 14v37a14 14 0 0 1-14 14h-39l-25 16 4-16h-10a14 14 0 0 1-14-14v-37a14 14 0 0 1 14-14Z" fill="#f8c104" fill-opacity=".18"/>
+    <path d="M194 222h70a14 14 0 0 1 14 14v37a14 14 0 0 1-14 14h-39l-25 16 4-16h-10a14 14 0 0 1-14-14v-37a14 14 0 0 1 14-14Z" fill="#fff" stroke="#0c2340" stroke-width="3.5"/>
+    <path d="M195 233h19" stroke="#f8c104" stroke-width="3"/>
+    <text x="211" y="260" clip-path="url(#dots-clip)" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="30" font-weight="700" letter-spacing="5" fill="#0c2340">...</text>
   </g>
 </svg>
