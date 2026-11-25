@@ -14,18 +14,27 @@
   <meta property="og:description" content="{{description}}">
   <meta property="og:url" content="{{canonical}}">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="{{root}}favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="{{root}}assets/favicon.svg">
+  <link rel="stylesheet" href="{{root}}assets/vendor/bootstrap-navbar.css">
   <link rel="stylesheet" href="{{root}}assets/css/site.css">
+  <script src="{{root}}assets/vendor/bootstrap.bundle.min.js" defer></script>
   <script src="{{root}}assets/js/site.js" defer></script>
 </head>
 <body data-page="{{route}}">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="nav-wrap wrap">
-      <a class="brand" href="{{root}}" aria-label="SLT-Eval 2027 home"><span>SLT-Eval <b>2027</b></span></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">☰</span></button>
-      <nav id="primary-nav" aria-label="Main navigation">{{nav}}</nav>
-    </div>
+    <nav class="navbar navbar-expand-lg site-navbar" aria-label="Main navigation">
+      <div class="nav-wrap wrap">
+        <a class="navbar-brand brand" href="{{root}}" aria-label="SLT-Eval 2027 home"><span>SLT-Eval <b>2027</b></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primary-nav" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" aria-hidden="true"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="primary-nav">
+          <div class="navbar-nav">{{nav}}</div>
+        </div>
+      </div>
+    </nav>
   </header>
   <main id="main">
     {{header}}
