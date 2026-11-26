@@ -99,6 +99,10 @@ body[data-page="about"] .prose .tagline{font-family:var(--sans);font-weight:600;
 
 .organizer-profiles .people-grid{margin-top:0}
 
+.people-grid.student-organizers{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:640px){.people-grid.student-organizers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
 @media(max-width:991.98px){
  .nav-wrap{min-height:76px;gap:0}
  .site-navbar .navbar-nav{gap:0;padding:10px 0 18px}

@@ -60,3 +60,15 @@ if (document.body.dataset.page === 'home') {
   window.addEventListener('hashchange', redirectLegacyHash);
   redirectLegacyHash();
 }
+
+// Use a neutral avatar when an optional profile photo is unavailable.
+document.querySelectorAll('img[data-fallback]').forEach(photo => {
+  const showPlaceholder = () => {
+    const fallback = photo.dataset.fallback;
+    if (!fallback) return;
+    delete photo.dataset.fallback;
+    photo.src = fallback;
+  };
+  photo.addEventListener('error', showPlaceholder, { once: true });
+  if (photo.complete && photo.naturalWidth === 0) showPlaceholder();
+});
