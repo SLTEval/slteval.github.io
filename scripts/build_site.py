@@ -32,9 +32,12 @@ def environment(root=ROOT):
 def structured_data(site, page, canonical):
     url = site['url']
     organization = {'@type': 'Organization', '@id': url + '#organizer',
-                    'name': site['organizer']['full_name'], 'url': site['organizer']['url']}
+                    'name': site['organizer']['full_name'], 'url': site['organizer']['url'],
+                    'contactPoint': {'@type': 'ContactPoint', 'contactType': 'SLT-Eval workshop enquiries',
+                                     'email': site['email']}}
     website = {'@type': 'WebSite', '@id': url + '#website', 'url': url,
-               'name': site['name'] + ' ' + site['year'], 'inLanguage': 'en',
+               'name': site['name'] + ' ' + site['year'], 'alternateName': site['name'],
+               'inLanguage': 'en',
                'publisher': {'@id': organization['@id']}}
     webpage = {'@type': 'WebPage', '@id': canonical + '#webpage', 'url': canonical,
                'name': page['title'], 'description': page['description'], 'inLanguage': 'en',
@@ -43,12 +46,19 @@ def structured_data(site, page, canonical):
                                       'width': 1200, 'height': 630}}
     graph = [organization, website, webpage]
     if page['route'] == 'home':
+        attendance_modes = {'hybrid': 'MixedEventAttendanceMode',
+                            'online': 'OnlineEventAttendanceMode',
+                            'in-person': 'OfflineEventAttendanceMode'}
+        attendance_mode = attendance_modes[site['event']['format'].casefold()]
+        webpage['mainEntity'] = {'@id': url + '#event'}
         graph.append({'@type': 'Event', '@id': url + '#event',
                       'name': site['name'] + ' ' + site['year'] + ': ' + site['workshop_name'],
-                      'description': page['description'], 'url': url,
+                      'description': site['event']['description'], 'url': url,
+                      'mainEntityOfPage': {'@id': canonical + '#webpage'},
                       'image': [url + site['social_image']],
                       'startDate': site['event']['iso'], 'endDate': site['event']['iso'],
                       'eventStatus': 'https://schema.org/EventScheduled',
+                      'eventAttendanceMode': 'https://schema.org/' + attendance_mode,
                       'location': {'@type': 'Place', 'name': site['event']['location'],
                                    'address': {'@type': 'PostalAddress',
                                                'addressLocality': site['event']['city'],

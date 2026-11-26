@@ -64,6 +64,24 @@ class SiteTests(unittest.TestCase):
         self.assertTrue(events[0]['name'].startswith('SLT-Eval 2027:'))
         self.assertNotIn('superEvent', events[0])
 
+    def test_workshop_schema_matches_confirmed_event_details(self):
+        graph = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', self.pages['index.html'])[1])['@graph']
+        site = json.loads((ROOT / '_data/site.json').read_text())
+        event = next(item for item in graph if item['@type'] == 'Event')
+        webpage = next(item for item in graph if item['@type'] == 'WebPage')
+        organization = next(item for item in graph if item['@type'] == 'Organization')
+        self.assertEqual(event['eventAttendanceMode'], 'https://schema.org/MixedEventAttendanceMode')
+        self.assertEqual(event['startDate'], site['event']['iso'])
+        self.assertEqual(event['endDate'], site['event']['iso'])
+        self.assertEqual(event['description'], site['event']['description'])
+        self.assertEqual(event['location']['name'], site['event']['location'])
+        self.assertEqual(event['organizer']['@id'], organization['@id'])
+        self.assertEqual(organization['contactPoint']['email'], site['email'])
+        self.assertEqual(webpage['mainEntity']['@id'], event['@id'])
+        self.assertEqual(event['mainEntityOfPage']['@id'], webpage['@id'])
+        self.assertNotIn('offers', event)
+        self.assertNotIn('performer', event)
+
     def test_deployment_artifact_and_local_links(self):
         # Build into a disposable project child, exactly as the Actions output step does.
         with tempfile.TemporaryDirectory(prefix='_site-test-', dir=ROOT) as folder:

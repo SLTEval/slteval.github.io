@@ -12,7 +12,8 @@
     "location": "Macau, China",
     "city": "Macau",
     "country_code": "MO",
-    "format": "Hybrid"
+    "format": "Hybrid",
+    "description": "A hybrid research workshop on evaluation methodologies, benchmarks, datasets, and metrics for speech, language, and multimodal systems."
   },
   "conference": {
     "name": "COLING 2027",
