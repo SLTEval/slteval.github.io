@@ -1,0 +1,74 @@
+[
+  {
+    "route": "home",
+    "label": "Home",
+    "title": "SLT-Eval 2027 | Speech & Language Evaluation at COLING",
+    "description": "SLT-Eval 2027: the 1st Speech and Language Technologies Evaluation Workshop, May 14 in Macau, China. Co-located with COLING 2027. Papers and shared tasks.",
+    "social_description": "Submit papers or join shared tasks at SLT-Eval 2027. May 14, Macau, China. Co-located with COLING 2027.",
+    "heading": "",
+    "lede": ""
+  },
+  {
+    "route": "about",
+    "label": "About",
+    "title": "About the Workshop | SLT-Eval 2027",
+    "description": "Explore SLT-Eval 2027: evaluation beyond proxy metrics for speech, language, and multimodal systems. Organized by LTRC, IIIT Hyderabad, at COLING 2027.",
+    "social_description": "Explore evaluation beyond proxy metrics at SLT-Eval 2027, a COLING workshop on May 14 in Macau, China.",
+    "heading": "Workshop Overview",
+    "lede": ""
+  },
+  {
+    "route": "dates",
+    "label": "Important Dates",
+    "title": "Important Dates & Deadlines | SLT-Eval 2027",
+    "description": "SLT-Eval 2027 paper submissions close January 22. See acceptance, camera-ready, and tentative shared task dates. All deadlines are 11:59 PM AoE.",
+    "social_description": "Paper deadline: January 22, 2027. See SLT-Eval deadlines and tentative shared task dates. All deadlines: 11:59 PM AoE.",
+    "heading": "Important Dates",
+    "lede": "Workshop deadlines and the shared task timeline."
+  },
+  {
+    "route": "program",
+    "label": "Program",
+    "title": "Program & Keynote | SLT-Eval 2027",
+    "description": "Explore the SLT-Eval 2027 program: a keynote by Johan Andréas Rohdin, paper presentations, and shared task results. May 14, Macau, China; hybrid format.",
+    "social_description": "Explore the SLT-Eval 2027 keynote, paper presentations, and shared task results. May 14 in Macau, China.",
+    "heading": "Program & Keynote",
+    "lede": "A keynote, research presentations, and shared task results."
+  },
+  {
+    "route": "cfp",
+    "label": "Call for Papers",
+    "title": "Call for Papers & Submissions | SLT-Eval 2027",
+    "description": "Submit to SLT-Eval 2027 by January 22: long papers up to 8 pages, short papers up to 4. Research, resources, position papers, and demos in ACL format.",
+    "social_description": "Submit your paper to SLT-Eval 2027 by January 22. Long papers: 8 pages; short papers: 4. Follow ACL format.",
+    "heading": "Call for Papers",
+    "lede": "Original research, new resources, and fresh perspectives on evaluation."
+  },
+  {
+    "route": "tasks",
+    "label": "Shared Tasks",
+    "title": "Shared Tasks & Team Registration | SLT-Eval 2027",
+    "description": "Register for Indic Spoken Question Answering and Speech-to-Speech Evaluation Metric shared tasks at SLT-Eval 2027. Datasets coming soon; dates tentative.",
+    "social_description": "Join SLT-Eval 2027 shared tasks in spoken QA and speech-to-speech metrics. Register your team; dates tentative.",
+    "heading": "Shared Tasks",
+    "lede": "Two benchmark-driven challenges. A shared pursuit of meaningful quality."
+  },
+  {
+    "route": "organizers",
+    "label": "Organizers",
+    "title": "Organizers & Program Committee | SLT-Eval 2027",
+    "description": "Meet the SLT-Eval 2027 workshop organizers, advisory committee, and Program Committee. Organized by the Language Technologies Research Centre, IIIT Hyderabad.",
+    "social_description": "Meet the SLT-Eval 2027 organizers, advisory committee, and Program Committee. Organized by LTRC, IIIT Hyderabad.",
+    "heading": "Organizers",
+    "lede": "Bringing the speech and language research community together."
+  },
+  {
+    "route": "contact",
+    "label": "Contact",
+    "title": "Contact the Organizers | SLT-Eval 2027",
+    "description": "Contact the SLT-Eval 2027 organizing committee about papers, shared tasks, or sponsorships. Email slteval.iiit@gmail.com. May 14, Macau, China.",
+    "social_description": "Questions about SLT-Eval 2027 papers, shared tasks, or sponsorships? Contact slteval.iiit@gmail.com.",
+    "heading": "Contact",
+    "lede": "Questions about papers, shared tasks, or the workshop? Get in touch."
+  }
+]

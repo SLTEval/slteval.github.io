@@ -1,3 +1,6 @@
+{% extends '_layouts/base.html' %}
+{% from '_components/ui.html' import icon, link, people_grid, committee_list, date_table, paper_type with context %}
+{% block content %}
 <!-- Original About wording from 396b13a, before the CFP rewrite. -->
 <div class="wrap page-content about-layout"><div class="prose">
 <p class="tagline">
@@ -30,7 +33,7 @@
               SLT-Eval aims to bridge this exact gap, starting with Indian languages, whose sheer
               diversity in syntax, morphology, origin, script, and grammar makes them an ideal
               testbed for evaluation frameworks built to extend well beyond. The workshop is
-              organized by the <a href="https://ltrc.iiit.ac.in/" target="_blank" rel="noopener noreferrer">Language Technologies Research Centre (LTRC), IIIT Hyderabad</a> to bring researchers
+              organized by the <a href="{{ site.organizer.url }}" target="_blank" rel="noopener noreferrer">{{ site.organizer.full_name }}</a> to bring researchers
               across ASR, MT, TTS, Speech Translation, LLMs, and multimodal systems together to build
               <strong>standardized, interpretable evaluation methodologies</strong>, benchmarks, datasets, and
               metrics, alongside dedicated shared tasks.
@@ -48,3 +51,4 @@
   <img src="{{root}}assets/img/speech-language-evaluation.svg" width="360" height="410" alt="A studio microphone with a detailed grille and a layered chat bubble, with outward-moving sound waves and animated typing dots.">
 </figure>
 </div>
+{% endblock %}

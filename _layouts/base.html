@@ -1,0 +1,16 @@
+{% from '_components/ui.html' import icon, link with context %}
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+{% include '_components/head.html' %}
+</head>
+<body data-page="{{ page.route }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include '_components/navigation.html' %}
+  <main id="main">
+    {% include '_components/page-header.html' %}
+    {% block content %}{% endblock %}
+  </main>
+  {% include '_components/footer.html' %}
+</body>
+</html>

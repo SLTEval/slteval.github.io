@@ -1,0 +1,79 @@
+[
+  {
+    "id": "sqa",
+    "label": "Track 1",
+    "title": "Indic Spoken Question Answering",
+    "description": [
+      {
+        "text": "Answer spoken questions in the same language, starting with Telugu. Systems are evaluated with an "
+      },
+      {
+        "strong": "LLM-as-Judge framework"
+      },
+      {
+        "text": "."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Task setup",
+        "bullets": [
+          "Input: Spoken question (audio)",
+          "Output: Natural language answer",
+          "Languages: Telugu (others TBA)"
+        ]
+      },
+      {
+        "heading": "Evaluation",
+        "bullets": [
+          "Factual correctness, fluency, and completeness",
+          "Language appropriateness and code-switch handling"
+        ]
+      },
+      {
+        "heading": "Participation",
+        "bullets": [
+          "Build an end-to-end or cascaded SQA system",
+          "Submit predictions on the held-out test set",
+          "Submit a system description paper in ACL format"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s2s",
+    "label": "Track 2",
+    "title": "Indic Speech-to-Speech Evaluation Metric Task",
+    "description": [
+      {
+        "text": "Build automatic metrics that predict human quality judgments for translated speech, across unseen speakers, domains, and speaking styles."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Task setup",
+        "bullets": [
+          "Input: Source speech and system-generated translated speech",
+          "Output: Predicted human quality scores",
+          "Language pairs: Telugu–English, Hindi–English, Telugu–Hindi"
+        ]
+      },
+      {
+        "heading": "Evaluation & ranking",
+        "bullets": [
+          "Intelligibility (0.30), adequacy (0.40), naturalness (0.30)",
+          "Ranking by correlation with human judgments",
+          "Composite: 0.30 · Intel. + 0.40 · Adeq. + 0.30 · Nat."
+        ]
+      },
+      {
+        "heading": "Participation",
+        "bullets": [
+          "Submit predictions on the official held-out test set",
+          "One primary and optional contrastive submissions",
+          "Submit a system description paper"
+        ]
+      }
+    ]
+  }
+]

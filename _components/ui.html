@@ -1,0 +1,27 @@
+{% macro icon(name, class_name) -%}
+{% include '_components/icons/' ~ name ~ '.svg' %}
+{%- endmacro %}
+
+{% macro link(label, href, classes, external=false) -%}
+<a class="{{ classes }}" href="{{ href }}"{% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ label }}</a>
+{%- endmacro %}
+
+{% macro profile(person) -%}
+<article class="person"><img src="{{ root }}assets/img/{{ person.image }}" width="120" height="120" loading="lazy"{% if person.get('fallback') %} data-fallback="{{ root }}assets/img/avatar-placeholder.svg"{% endif %} alt="{{ person.name }}"><h3>{{ person.name }}</h3>{% if person.affiliation %}<p>{% for line in person.affiliation %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>{% endif %}</article>
+{%- endmacro %}
+
+{% macro people_grid(members, extra_class='') -%}
+<div class="people-grid{% if extra_class %} {{ extra_class }}{% endif %}">{% for person in members %}{{ profile(person) }}{% endfor %}</div>
+{%- endmacro %}
+
+{% macro committee_list(members) -%}
+<ul class="pc-list">{% for person in members %}<li>{{ person.name }} <span class="pc-affil"> {{ person.affiliation }}</span></li>{% endfor %}</ul>
+{%- endmacro %}
+
+{% macro date_table(rows, caption, labelledby='') -%}
+<div class="table-scroll"><table{% if labelledby %} aria-labelledby="{{ labelledby }}"{% endif %}><caption class="sr-only">{{ caption }}</caption><thead><tr><th scope="col">Date</th><th scope="col">Milestone</th></tr></thead><tbody>{% for row in rows %}<tr><th scope="row">{% if row.iso %}<time datetime="{{ row.iso }}">{{ row.date }}</time>{% else %}{{ row.date }}{% endif %}</th><td>{{ row.milestone }}</td></tr>{% endfor %}</tbody></table></div>
+{%- endmacro %}
+
+{% macro paper_type(label, pages) -%}
+<div><h3>{{ label }}</h3><p>Up to <strong>{{ pages }} pages</strong></p></div>
+{%- endmacro %}

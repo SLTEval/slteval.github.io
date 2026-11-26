@@ -1,0 +1,87 @@
+{
+  "papers": [
+    {
+      "date": "Nov 29, 2026",
+      "iso": null,
+      "milestone": "First call for workshop papers"
+    },
+    {
+      "date": "Dec 21, 2026",
+      "iso": null,
+      "milestone": "Second call for workshop papers"
+    },
+    {
+      "date": "Jan 22, 2027",
+      "iso": null,
+      "milestone": "Direct paper submission deadline",
+      "id": "submission"
+    },
+    {
+      "date": "TBA",
+      "iso": null,
+      "milestone": "Pre-reviewed ARR commitment deadline"
+    },
+    {
+      "date": "Feb 22, 2027",
+      "iso": null,
+      "milestone": "Paper notification of acceptance"
+    },
+    {
+      "date": "Mar 5, 2027",
+      "iso": null,
+      "milestone": "Camera-ready paper due"
+    },
+    {
+      "date": "Apr 5, 2027",
+      "iso": null,
+      "milestone": "Proceedings due (hard deadline)"
+    },
+    {
+      "date": "May 14, 2027",
+      "iso": "2027-05-14",
+      "milestone": "Workshop date"
+    }
+  ],
+  "tasks": [
+    {
+      "date": "Nov 25, 2026",
+      "iso": "2026-11-25",
+      "milestone": "Task announced in the first call; registration opens."
+    },
+    {
+      "date": "Dec 15, 2026",
+      "iso": "2026-12-15",
+      "milestone": "Train and dev data released, with baseline scores and evaluation script. Dev leaderboard opens."
+    },
+    {
+      "date": "Jan 20, 2027",
+      "iso": "2027-01-20",
+      "milestone": "Test data released (inputs only, human scores hidden)."
+    },
+    {
+      "date": "Jan 26, 2027",
+      "iso": "2027-01-26",
+      "milestone": "Test submissions close (limited submissions per team)."
+    },
+    {
+      "date": "Jan 28, 2027",
+      "iso": "2027-01-28",
+      "milestone": "Results announced, with team rankings."
+    },
+    {
+      "date": "Feb 8, 2027",
+      "iso": "2027-02-08",
+      "milestone": "System description papers due (4 pages, ACL format, 13 days after test close)."
+    },
+    {
+      "date": "Feb 22, 2027",
+      "iso": "2027-02-22",
+      "milestone": "Notification, the same date as workshop papers."
+    },
+    {
+      "date": "Mar 5, 2027",
+      "iso": "2027-03-05",
+      "milestone": "Camera-ready papers due."
+    }
+  ]
+}

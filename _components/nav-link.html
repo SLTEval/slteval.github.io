@@ -1,0 +1,1 @@
+<a class="nav-link{% if item.route == page.route %} active{% endif %}" href="{{ root }}{% if item.route != 'home' %}{{ item.route }}/{% endif %}"{% if item.route == page.route %} aria-current="page"{% endif %}>{{ item.label }}</a>

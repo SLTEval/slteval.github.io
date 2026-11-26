@@ -1,0 +1,223 @@
+{
+  "organizing": [
+    {
+      "name": "Anil Kumar Vuppala",
+      "image": "anil.png",
+      "affiliation": [
+        "LTRC, IIIT Hyderabad"
+      ]
+    },
+    {
+      "name": "Mathew Magimai Doss",
+      "image": "mathew.png",
+      "affiliation": [
+        "Idiap Research Institute"
+      ]
+    },
+    {
+      "name": "Mikko Kurimo",
+      "image": "mikko.png",
+      "affiliation": [
+        "Aalto University"
+      ]
+    },
+    {
+      "name": "Parameswari Krishnamurthy",
+      "image": "param.png",
+      "affiliation": [
+        "LTRC, IIIT Hyderabad"
+      ]
+    },
+    {
+      "name": "Radhika Mamidi",
+      "image": "radhika.png",
+      "affiliation": [
+        "LTRC, IIIT Hyderabad"
+      ]
+    },
+    {
+      "name": "Santosh Kesiraju",
+      "image": "santosh.png",
+      "affiliation": [
+        "BUT Speech@FIT, Brno University of Technology"
+      ]
+    },
+    {
+      "name": "Soumya Vajjala",
+      "image": "soumya.png",
+      "affiliation": [
+        "National Research Council, Canada"
+      ]
+    },
+    {
+      "name": "Vasudeva Varma",
+      "image": "vasudeva_varma.png",
+      "affiliation": [
+        "Head, LTRC, IIIT Hyderabad"
+      ]
+    }
+  ],
+  "advisory": [
+    {
+      "name": "Rajeev Sangal",
+      "image": "rajeev.png",
+      "affiliation": [
+        "Professor Emeritus, IIIT Hyderabad; Founder, LTRC"
+      ]
+    },
+    {
+      "name": "Dipti Misra Sharma",
+      "image": "dipti.png",
+      "affiliation": [
+        "Professor Emeritus, LTRC, IIIT Hyderabad"
+      ]
+    },
+    {
+      "name": "Bayya Yegnanarayana",
+      "image": "bayya.png",
+      "affiliation": [
+        "INSA Senior Scientist, IIIT Hyderabad"
+      ]
+    }
+  ],
+  "students": [
+    {
+      "name": "Radhe Shyam Salopanthula",
+      "image": "radhe.jpg",
+      "affiliation": [
+        "PhD Student",
+        "Speech Processing Lab, LTRC, IIIT Hyderabad"
+      ],
+      "fallback": true
+    },
+    {
+      "name": "Ravi Sastry Kolluru",
+      "image": "ravi.jpg",
+      "affiliation": [
+        "PhD Student",
+        "Speech Processing Lab, LTRC, IIIT Hyderabad"
+      ],
+      "fallback": true
+    },
+    {
+      "name": "Sri Charan Devarakonda",
+      "image": "charan.jpg",
+      "affiliation": [
+        "PhD Student",
+        "Speech Processing Lab, LTRC, IIIT Hyderabad"
+      ],
+      "fallback": true
+    },
+    {
+      "name": "Bhavana Akkiraju",
+      "image": "bhavana.jpg",
+      "affiliation": [
+        "PhD Student",
+        "Speech Processing Lab, LTRC, IIIT Hyderabad"
+      ],
+      "fallback": true
+    }
+  ],
+  "committee": [
+    {
+      "name": "Achut Rao MV",
+      "affiliation": "Qualcomm, India"
+    },
+    {
+      "name": "Ajay Srinivasamurthy",
+      "affiliation": "Amazon Artificial General Intelligence"
+    },
+    {
+      "name": "Anil Nelakanti",
+      "affiliation": "IIIT Hyderabad"
+    },
+    {
+      "name": "Anoop Kunchukuttan",
+      "affiliation": "Bodhan AI"
+    },
+    {
+      "name": "Arafat Ahsan",
+      "affiliation": "IIIT Hyderabad"
+    },
+    {
+      "name": "Aravind Illa",
+      "affiliation": "Oracle, India"
+    },
+    {
+      "name": "Chiranjeevi Yarra",
+      "affiliation": "IIIT Hyderabad"
+    },
+    {
+      "name": "Hemant A. Patil",
+      "affiliation": "DA-IICT"
+    },
+    {
+      "name": "Hrishikesh Terdalkar",
+      "affiliation": "IIIT Hyderabad"
+    },
+    {
+      "name": "Kishore Papineni",
+      "affiliation": "Google"
+    },
+    {
+      "name": "K. S. Rao",
+      "affiliation": "IIT Kharagpur"
+    },
+    {
+      "name": "Krishna Gurugubelli",
+      "affiliation": "Samsung Research"
+    },
+    {
+      "name": "Manish Gupta",
+      "affiliation": "Microsoft, India"
+    },
+    {
+      "name": "Manish Shrivastava",
+      "affiliation": "IIIT Hyderabad"
+    },
+    {
+      "name": "Nitika Mathur",
+      "affiliation": "Oracle"
+    },
+    {
+      "name": "Ondřej Bojar",
+      "affiliation": "Charles University"
+    },
+    {
+      "name": "Preeti Rao",
+      "affiliation": "IIT Bombay"
+    },
+    {
+      "name": "Rajakrishnan P Rajkumar",
+      "affiliation": "IIIT Hyderabad"
+    },
+    {
+      "name": "Ranjani H G",
+      "affiliation": "Ericsson"
+    },
+    {
+      "name": "Ravi Shekhar",
+      "affiliation": "University of Essex"
+    },
+    {
+      "name": "Sandipan Dandapat",
+      "affiliation": "IIT Hyderabad"
+    },
+    {
+      "name": "Sivaji Bandyopadhyay",
+      "affiliation": "Jadavpur University"
+    },
+    {
+      "name": "Sriram Ganapathy",
+      "affiliation": "IISc Bangalore (LEAP)"
+    },
+    {
+      "name": "Sunayana Sitaram",
+      "affiliation": "Microsoft Research India"
+    },
+    {
+      "name": "Vipul Arora",
+      "affiliation": "KU Leuven"
+    }
+  ]
+}

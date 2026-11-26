@@ -1,0 +1,23 @@
+<footer class="site-footer" id="footer">
+    <div class="wrap footer-main">
+      <div class="footer-intro">
+        <a class="footer-brand" href="{{root}}">{{ site.name }} <span>{{ site.year }}</span></a>
+        <p class="footer-workshop">{{ site.workshop_name }}</p>
+        <p class="footer-brief">Bringing researchers together to advance evaluation for speech, language, and multimodal systems.</p>
+      </div>
+      <div class="footer-details">
+        <p class="footer-label">Workshop</p>
+        <ul class="footer-facts">
+          <li>{{ icon("calendar-event", "footer-icon") }}<time datetime="{{ site.event.iso }}">{{ site.event.date }}</time></li>
+          <li>{{ icon("geo-alt", "footer-icon") }}<span>{{ site.event.location }}</span></li>
+        </ul>
+        <p class="footer-colocation">Co-located with <a href="{{ site.conference.url }}" target="_blank" rel="noopener noreferrer">{{ site.conference.name }}</a></p>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-label">Stay in touch</p>
+        <a class="footer-email" href="mailto:{{ site.email }}">{{ icon("envelope", "footer-icon") }}<span>{{ site.email }}</span></a>
+        <p class="footer-contact-note">For submission and workshop enquiries.</p>
+      </div>
+    </div>
+    <div class="wrap footer-bottom"><span>Organized by <a href="{{ site.organizer.url }}" target="_blank" rel="noopener noreferrer">{{ site.organizer.name }}</a></span></div>
+  </footer>

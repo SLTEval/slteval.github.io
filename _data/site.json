@@ -1,0 +1,38 @@
+{
+  "url": "https://slteval.github.io/",
+  "name": "SLT-Eval",
+  "year": "2027",
+  "workshop_name": "1st Speech and Language Technologies Evaluation Workshop",
+  "email": "slteval.iiit@gmail.com",
+  "social_image": "assets/img/slteval-2027-social.jpg",
+  "social_image_alt": "SLT-Eval 2027 workshop, May 14, Macau, China, at COLING 2027. Beyond Proxy Metrics.",
+  "event": {
+    "iso": "2027-05-14",
+    "date": "May 14, 2027",
+    "location": "Macau, China",
+    "city": "Macau",
+    "country_code": "MO",
+    "format": "Hybrid"
+  },
+  "conference": {
+    "name": "COLING 2027",
+    "url": "https://2027.coling-iccl.org/"
+  },
+  "organizer": {
+    "name": "LTRC, IIIT Hyderabad",
+    "full_name": "Language Technologies Research Centre (LTRC), IIIT Hyderabad",
+    "url": "https://ltrc.iiit.ac.in/"
+  },
+  "links": {
+    "registration": "https://forms.gle/yRAyMxjbBtwQKwYeA",
+    "submission": "https://openreview.net/group?id=coling-iccl.org/COLING/2027/Workshop/SLT-Eval",
+    "acl_templates": "https://github.com/acl-org/acl-style-files",
+    "acl_formatting": "https://acl-org.github.io/ACLPUB/formatting.html",
+    "anthology": "https://aclanthology.org/"
+  },
+  "paper_limits": {
+    "long": 8,
+    "short": 4,
+    "system": 4
+  }
+}
