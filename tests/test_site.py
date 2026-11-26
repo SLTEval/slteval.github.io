@@ -56,6 +56,14 @@ class SiteTests(unittest.TestCase):
                 graph = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', html)[1])['@graph']
                 self.assertTrue(any(item['@type'] == 'WebPage' for item in graph))
 
+    def test_workshop_schema_does_not_publish_parent_conference(self):
+        html = self.pages['index.html']
+        graph = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', html)[1])['@graph']
+        events = [item for item in graph if item['@type'] == 'Event']
+        self.assertEqual(len(events), 1)
+        self.assertTrue(events[0]['name'].startswith('SLT-Eval 2027:'))
+        self.assertNotIn('superEvent', events[0])
+
     def test_deployment_artifact_and_local_links(self):
         # Build into a disposable project child, exactly as the Actions output step does.
         with tempfile.TemporaryDirectory(prefix='_site-test-', dir=ROOT) as folder:

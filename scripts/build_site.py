@@ -53,9 +53,7 @@ def structured_data(site, page, canonical):
                                    'address': {'@type': 'PostalAddress',
                                                'addressLocality': site['event']['city'],
                                                'addressCountry': site['event']['country_code']}},
-                      'organizer': {'@id': organization['@id']},
-                      'superEvent': {'@type': 'Event', 'name': site['conference']['name'],
-                                     'url': site['conference']['url']}})
+                      'organizer': {'@id': organization['@id']}})
     return Markup(json.dumps({'@context': 'https://schema.org', '@graph': graph},
                              ensure_ascii=False).replace('<', '\\u003c'))
 
