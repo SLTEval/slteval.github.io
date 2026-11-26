@@ -6,6 +6,8 @@ Edit `_content/` for page content, `_components/` for shared elements, `_layouts
 
 Profile photos are optional. Keep the intended filename in `_data/people.json`; if it is absent from `assets/img/`, the build uses the placeholder avatar. Adding the photo later automatically uses it on the next build. No per-person fallback flag is required.
 
+The shared footer includes a Hits counter with the same `slteval.github.io` identifier on every current route. It counts badge loads (visits, including repeats), not unique people, starting from its installation in November 2026. No historical counts are imported. The counter is hosted by `hits.sh`; its availability and totals depend on that service and browser image loading. The original `/old/` site remains unchanged.
+
 **You do not need to regenerate HTML locally before committing.** Commit and push your source changes; Actions generates the published pages in `_site/`. It does not commit generated files back to the repository or create a build loop. The existing checked-in HTML remains available for previews, but may lag behind template edits until you rebuild locally.
 
 For an optional local preview:
