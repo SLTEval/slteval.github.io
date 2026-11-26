@@ -82,6 +82,14 @@
   ],
   "students": [
     {
+      "name": "Radhe Shyam Salopanthula",
+      "image": "radhe.jpg",
+      "affiliation": [
+        "PhD Student",
+        "Speech Processing Lab, LTRC, IIIT Hyderabad"
+      ]
+    },
+    {
       "name": "Ravi Sastry Kolluru",
       "image": "ravi.jpg",
       "affiliation": [
