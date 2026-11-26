@@ -80,9 +80,6 @@ class SiteTests(unittest.TestCase):
                         if target.is_dir():
                             target /= 'index.html'
                         with self.subTest(page=name, link=value):
-                            if tag == 'img' and key == 'src' and not target.is_file() and attrs.get('data-fallback'):
-                                self.assertTrue(((artifact / name).parent / attrs['data-fallback']).is_file())
-                                continue
                             self.assertTrue(target.is_file())
                             if url.fragment and target.suffix == '.html':
                                 self.assertIn(unquote(url.fragment), {a.get('id') for _, a in Document(target.read_text()).elements})
@@ -107,6 +104,24 @@ class SiteTests(unittest.TestCase):
         self.assertIn('&lt;script&gt;', html)
         self.assertIn('A &amp; B', html)
         self.assertIn('data-fallback="../assets/img/avatar-placeholder.svg"', html)
+
+    def test_missing_photo_uses_placeholder_until_photo_is_added(self):
+        with tempfile.TemporaryDirectory() as folder:
+            fixture = Path(folder)
+            shutil.copytree(ROOT / '_components', fixture / '_components')
+            images = fixture / 'assets/img'
+            images.mkdir(parents=True)
+            shutil.copy2(ROOT / 'assets/img/avatar-placeholder.svg', images)
+            template = build.environment(fixture).from_string(
+                "{% from '_components/ui.html' import profile with context %}{{ profile(person) }}")
+            # No optional fallback flag is required in the person's data.
+            person = dict(name='Student Organizer', image='future-photo.jpg', affiliation=[])
+            html = template.render(root='../', person=person)
+            self.assertIn('src="../assets/img/avatar-placeholder.svg"', html)
+            self.assertNotIn('src="../assets/img/future-photo.jpg"', html)
+            shutil.copy2(ROOT / 'assets/img/macau-skyline.jpg', images / 'future-photo.jpg')
+            html = template.render(root='../', person=person)
+            self.assertIn('src="../assets/img/future-photo.jpg"', html)
 
 
 if __name__ == '__main__':

@@ -4,6 +4,8 @@ The HTML uses Jinja layouts and components. GitHub Actions installs Jinja, build
 
 Edit `_content/` for page content, `_components/` for shared elements, `_layouts/` for layouts, and `_data/` for people, dates, navigation, and shared task information. CSS, JavaScript, and images live in `assets/`.
 
+Profile photos are optional. Keep the intended filename in `_data/people.json`; if it is absent from `assets/img/`, the build uses the placeholder avatar. Adding the photo later automatically uses it on the next build. No per-person fallback flag is required.
+
 **You do not need to regenerate HTML locally before committing.** Commit and push your source changes; Actions generates the published pages in `_site/`. It does not commit generated files back to the repository or create a build loop. The existing checked-in HTML remains available for previews, but may lag behind template edits until you rebuild locally.
 
 For an optional local preview:

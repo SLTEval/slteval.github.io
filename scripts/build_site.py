@@ -14,9 +14,19 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def environment(root=ROOT):
-    return Environment(loader=FileSystemLoader(root),
-                       autoescape=select_autoescape(('html', 'svg')),
-                       undefined=StrictUndefined, keep_trailing_newline=True)
+    env = Environment(loader=FileSystemLoader(root),
+                      autoescape=select_autoescape(('html', 'svg')),
+                      undefined=StrictUndefined, keep_trailing_newline=True)
+
+    def profile_image(filename):
+        if filename and Path(filename).name != filename:
+            raise ValueError('Profile images must be filenames within assets/img')
+        if filename and (root / 'assets/img' / filename).is_file():
+            return filename
+        return 'avatar-placeholder.svg'
+
+    env.filters['profile_image'] = profile_image
+    return env
 
 
 def structured_data(site, page, canonical):

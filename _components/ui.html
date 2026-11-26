@@ -7,7 +7,7 @@
 {%- endmacro %}
 
 {% macro profile(person) -%}
-<article class="person"><img src="{{ root }}assets/img/{{ person.image }}" width="120" height="120" loading="lazy"{% if person.get('fallback') %} data-fallback="{{ root }}assets/img/avatar-placeholder.svg"{% endif %} alt="{{ person.name }}"><h3>{{ person.name }}</h3>{% if person.affiliation %}<p>{% for line in person.affiliation %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>{% endif %}</article>
+<article class="person"><img src="{{ root }}assets/img/{{ person.get('image', '') | profile_image }}" width="120" height="120" loading="lazy" data-fallback="{{ root }}assets/img/avatar-placeholder.svg" alt="{{ person.name }}"><h3>{{ person.name }}</h3>{% if person.affiliation %}<p>{% for line in person.affiliation %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>{% endif %}</article>
 {%- endmacro %}
 
 {% macro people_grid(members, extra_class='') -%}
