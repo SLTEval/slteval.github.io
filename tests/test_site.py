@@ -82,6 +82,45 @@ class SiteTests(unittest.TestCase):
         self.assertNotIn('offers', event)
         self.assertNotIn('performer', event)
 
+    def test_structured_data_identifiers_resolve_to_current_routes(self):
+        site = json.loads((ROOT / '_data/site.json').read_text())
+        definitions, references = {}, set()
+
+        def identifiers(value):
+            if isinstance(value, dict):
+                if '@id' in value:
+                    yield value['@id']
+                for item in value.values():
+                    yield from identifiers(item)
+            elif isinstance(value, list):
+                for item in value:
+                    yield from identifiers(item)
+
+        for name, html in self.pages.items():
+            graph = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', html)[1])['@graph']
+            webpage = next(item for item in graph if item['@type'] == 'WebPage')
+            organization = next(item for item in graph if item['@type'] == 'Organization')
+            self.assertEqual(webpage['@id'], webpage['url'])
+            self.assertEqual(organization['@id'], site['organizer']['url'])
+            for item in graph:
+                identifier = item['@id']
+                if identifier in definitions:
+                    self.assertEqual(definitions[identifier], item)
+                definitions[identifier] = item
+            references.update(identifiers(graph))
+
+        self.assertTrue(references <= definitions.keys(), references - definitions.keys())
+        for identifier in references:
+            if not identifier.startswith(site['url']):
+                continue
+            url = urlsplit(identifier)
+            target = url.path.strip('/')
+            target = target + '/index.html' if target else 'index.html'
+            with self.subTest(identifier=identifier):
+                self.assertIn(target, self.pages)
+                if url.fragment:
+                    self.assertIn(url.fragment, {attrs.get('id') for _, attrs in Document(self.pages[target]).elements})
+
     def test_deployment_artifact_and_local_links(self):
         # Build into a disposable project child, exactly as the Actions output step does.
         with tempfile.TemporaryDirectory(prefix='_site-test-', dir=ROOT) as folder:

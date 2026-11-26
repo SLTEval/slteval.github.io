@@ -31,7 +31,7 @@ def environment(root=ROOT):
 
 def structured_data(site, page, canonical):
     url = site['url']
-    organization = {'@type': 'Organization', '@id': url + '#organizer',
+    organization = {'@type': 'Organization', '@id': site['organizer']['url'],
                     'name': site['organizer']['full_name'], 'url': site['organizer']['url'],
                     'contactPoint': {'@type': 'ContactPoint', 'contactType': 'SLT-Eval workshop enquiries',
                                      'email': site['email']}}
@@ -39,7 +39,7 @@ def structured_data(site, page, canonical):
                'name': site['name'] + ' ' + site['year'], 'alternateName': site['name'],
                'inLanguage': 'en',
                'publisher': {'@id': organization['@id']}}
-    webpage = {'@type': 'WebPage', '@id': canonical + '#webpage', 'url': canonical,
+    webpage = {'@type': 'WebPage', '@id': canonical, 'url': canonical,
                'name': page['title'], 'description': page['description'], 'inLanguage': 'en',
                'isPartOf': {'@id': website['@id']}, 'about': {'@id': url + '#event'},
                'primaryImageOfPage': {'@type': 'ImageObject', 'url': url + site['social_image'],
@@ -54,7 +54,7 @@ def structured_data(site, page, canonical):
         graph.append({'@type': 'Event', '@id': url + '#event',
                       'name': site['name'] + ' ' + site['year'] + ': ' + site['workshop_name'],
                       'description': site['event']['description'], 'url': url,
-                      'mainEntityOfPage': {'@id': canonical + '#webpage'},
+                      'mainEntityOfPage': {'@id': canonical},
                       'image': [url + site['social_image']],
                       'startDate': site['event']['iso'], 'endDate': site['event']['iso'],
                       'eventStatus': 'https://schema.org/EventScheduled',
