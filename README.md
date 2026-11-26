@@ -20,3 +20,5 @@ python3 -m venv .venv
 Then visit `http://localhost:8765/`.
 
 The workflow is `.github/workflows/pages.yml`. GitHub Pages must use **GitHub Actions** as its publishing source (repository Settings → Pages → Build and deployment → Source). The workflow deploys only public website files; templates, Python dependencies, and build scripts are excluded from the published artifact.
+
+The original single-page website with the Hyderabad banner is preserved on the `codex/legacy-single-page` branch (starting at `95296a9`). Each deployment checks out that branch and includes its HTML, banner, and assets at `https://slteval.github.io/old/`. The current website continues to use `main`. To publish changes to the old version, push to its branch and then run the workflow on `main` (or push a main-site update).
