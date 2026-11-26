@@ -97,10 +97,13 @@ body[data-page="about"] .prose .tagline{font-family:var(--sans);font-weight:600;
 .pc-affil{display:block;color:var(--muted);font-size:.9rem;font-weight:400;margin-top:3px}
 @media(max-width:640px){.pc-list{grid-template-columns:1fr}}
 
-.organizer-profiles .people-grid{margin-top:0}
+.organizer-profiles .people-grid{margin-top:32px}
 
-.people-grid.student-organizers{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media(max-width:640px){.people-grid.student-organizers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+body[data-page="organizers"] .people-grid{display:flex;flex-wrap:wrap;justify-content:center}
+body[data-page="organizers"] .people-grid .person{flex:0 1 calc((100% - 105px)/4);min-width:0}
+body[data-page="organizers"] .pc-list{text-align:left}
+@media(max-width:900px){body[data-page="organizers"] .people-grid .person{flex-basis:calc((100% - 70px)/3)}}
+@media(max-width:640px){body[data-page="organizers"] .people-grid .person{flex-basis:calc((100% - 20px)/2)}}
 
 
 @media(max-width:991.98px){
