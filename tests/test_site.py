@@ -6,7 +6,7 @@ import re
 import shutil
 import tempfile
 import unittest
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qs, unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('build_site', ROOT / 'scripts/build_site.py')
@@ -157,10 +157,16 @@ class SiteTests(unittest.TestCase):
             with self.subTest(page=name):
                 self.assertEqual(len(counters), 2)
                 total, page = (urlsplit(counter['src']) for counter in counters)
-                self.assertEqual(total.netloc, 'hits.sh')
-                self.assertEqual(total.path, '/slteval.github.io.svg')
+                if name == 'index.html':
+                    self.assertEqual(total.netloc, 'img.shields.io')
+                    self.assertEqual(parse_qs(total.query)['url'],
+                                     ['https://hits.sh/api/urns/slteval.github.io'])
+                else:
+                    self.assertEqual(total.netloc, 'hits.sh')
+                    self.assertEqual(total.path, '/slteval.github.io.svg')
                 self.assertEqual(page.netloc, 'hits.sh')
-                self.assertEqual(page.path, '/slteval.github.io/' + name + '.svg')
+                expected = '/slteval.github.io.svg' if name == 'index.html' else '/slteval.github.io/' + name + '.svg'
+                self.assertEqual(page.path, expected)
                 page_identifiers.add(page.path)
         self.assertEqual(len(page_identifiers), len(self.pages))
 
