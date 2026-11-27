@@ -149,6 +149,21 @@ class SiteTests(unittest.TestCase):
                             if url.fragment and target.suffix == '.html':
                                 self.assertIn(unquote(url.fragment), {a.get('id') for _, a in Document(target.read_text()).elements})
 
+    def test_visit_counters_preserve_site_history_and_separate_pages(self):
+        page_identifiers = set()
+        for name, html in self.pages.items():
+            counters = [attrs for tag, attrs in Document(html).elements
+                        if tag == 'img' and attrs.get('class') == 'visitor-counter']
+            with self.subTest(page=name):
+                self.assertEqual(len(counters), 2)
+                total, page = (urlsplit(counter['src']) for counter in counters)
+                self.assertEqual(total.netloc, 'hits.sh')
+                self.assertEqual(total.path, '/slteval.github.io.svg')
+                self.assertEqual(page.netloc, 'hits.sh')
+                self.assertEqual(page.path, '/slteval.github.io/' + name + '.svg')
+                page_identifiers.add(page.path)
+        self.assertEqual(len(page_identifiers), len(self.pages))
+
     def test_footer_is_shared_by_every_route(self):
         with tempfile.TemporaryDirectory() as folder:
             fixture = Path(folder)
