@@ -6,7 +6,7 @@ import re
 import shutil
 import tempfile
 import unittest
-from urllib.parse import parse_qs, unquote, urlsplit
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('build_site', ROOT / 'scripts/build_site.py')
@@ -155,19 +155,26 @@ class SiteTests(unittest.TestCase):
             counters = [attrs for tag, attrs in Document(html).elements
                         if tag == 'img' and attrs.get('class') == 'visitor-counter']
             with self.subTest(page=name):
-                self.assertEqual(len(counters), 2)
-                total, page = (urlsplit(counter['src']) for counter in counters)
                 if name == 'index.html':
-                    self.assertEqual(total.netloc, 'img.shields.io')
-                    self.assertEqual(parse_qs(total.query)['url'],
-                                     ['https://hits.sh/api/urns/slteval.github.io'])
+                    self.assertEqual(counters, [])
+                    elements = Document(html).elements
+                    images = [attrs for tag, attrs in elements if tag == 'image' and attrs.get('id') == 'home-live-count']
+                    self.assertEqual(len(images), 1)
+                    image = urlsplit(images[0]['href'])
+                    self.assertEqual(image.netloc, 'hits.sh')
+                    self.assertEqual(image.path, '/slteval.github.io.svg')
+                    uses = [attrs for tag, attrs in elements if tag == 'use' and attrs.get('href') == '#home-live-count']
+                    self.assertEqual(len(uses), 2)
+                    self.assertNotIn('img.shields.io', html)
+                    page_identifiers.add(image.path)
                 else:
+                    self.assertEqual(len(counters), 2)
+                    total, page = (urlsplit(counter['src']) for counter in counters)
                     self.assertEqual(total.netloc, 'hits.sh')
                     self.assertEqual(total.path, '/slteval.github.io.svg')
-                self.assertEqual(page.netloc, 'hits.sh')
-                expected = '/slteval.github.io.svg' if name == 'index.html' else '/slteval.github.io/' + name + '.svg'
-                self.assertEqual(page.path, expected)
-                page_identifiers.add(page.path)
+                    self.assertEqual(page.netloc, 'hits.sh')
+                    self.assertEqual(page.path, '/slteval.github.io/' + name + '.svg')
+                    page_identifiers.add(page.path)
         self.assertEqual(len(page_identifiers), len(self.pages))
 
     def test_footer_is_shared_by_every_route(self):

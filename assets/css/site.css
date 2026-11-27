@@ -263,3 +263,5 @@ h2{font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:18px;letter-spacing:-.025em}
   .about-copy .topic-list{padding-inline:16px}
   .home-highlights{grid-template-columns:minmax(0,1fr);gap:32px}
 }
+
+.home-visitor-counters{display:block;max-width:100%;height:auto;fill:var(--footer-light);font:11px Verdana,Geneva,sans-serif}

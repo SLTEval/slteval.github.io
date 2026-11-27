@@ -23,11 +23,15 @@
       <span>Organized by <a href="{{ site.organizer.url }}" target="_blank" rel="noopener noreferrer">{{ site.organizer.name }}</a></span>
       <div class="footer-counters">
         {% if page.route == 'home' %}
-        <img class="visitor-counter" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhits.sh%2Fapi%2Furns%2Fslteval.github.io&amp;query=%24.total&amp;label=Total%20site%20visits&amp;color=f8c104&amp;labelColor=0c2340" alt="Total site visits" height="20" decoding="async" referrerpolicy="no-referrer" title="Total may take a few minutes to refresh">
+        <svg class="home-visitor-counters" viewBox="0 0 330 20" width="330" height="20" role="img" aria-label="Total site visits and Page visits share the original home counter">
+          <defs><image id="home-live-count" href="https://hits.sh/slteval.github.io.svg?label=%20&amp;color=f8c104&amp;labelColor=0c2340" width="70" height="20" preserveAspectRatio="xMinYMid meet"/></defs>
+          <text x="0" y="14">Total site visits</text><use href="#home-live-count" x="98"/>
+          <text x="190" y="14">Page visits</text><use href="#home-live-count" x="260"/>
+        </svg>
         {% else %}
         <img class="visitor-counter" src="https://hits.sh/slteval.github.io.svg?label=Total%20site%20visits&amp;color=f8c104&amp;labelColor=0c2340" alt="Total site visits" height="20" decoding="async" referrerpolicy="no-referrer">
+        <img class="visitor-counter" src="https://hits.sh/slteval.github.io/{{ page.route }}/index.html.svg?label=Page%20visits&amp;color=f8c104&amp;labelColor=0c2340" alt="Page visits" height="20" decoding="async" referrerpolicy="no-referrer">
         {% endif %}
-        <img class="visitor-counter" src="https://hits.sh/slteval.github.io{{ '' if page.route == 'home' else '/' ~ page.route ~ '/index.html' }}.svg?label=Page%20visits&amp;color=f8c104&amp;labelColor=0c2340" alt="Page visits" height="20" decoding="async" referrerpolicy="no-referrer">
       </div>
     </div>
   </footer>
