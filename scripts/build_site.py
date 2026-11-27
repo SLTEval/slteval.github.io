@@ -36,7 +36,7 @@ def structured_data(site, page, canonical):
                     'contactPoint': {'@type': 'ContactPoint', 'contactType': 'SLT-Eval workshop enquiries',
                                      'email': site['email']}}
     website = {'@type': 'WebSite', '@id': url + '#website', 'url': url,
-               'name': site['name'] + ' ' + site['year'], 'alternateName': site['name'],
+               'name': site['name'] + ' ' + site['year'], 'alternateName': site['name_variants'],
                'inLanguage': 'en',
                'publisher': {'@id': organization['@id']}}
     webpage = {'@type': 'WebPage', '@id': canonical, 'url': canonical,
@@ -53,6 +53,7 @@ def structured_data(site, page, canonical):
         webpage['mainEntity'] = {'@id': url + '#event'}
         graph.append({'@type': 'Event', '@id': url + '#event',
                       'name': site['name'] + ' ' + site['year'] + ': ' + site['workshop_name'],
+                      'alternateName': site['name_variants'],
                       'description': site['event']['description'], 'url': url,
                       'mainEntityOfPage': {'@id': canonical},
                       'image': [url + site['social_image']],

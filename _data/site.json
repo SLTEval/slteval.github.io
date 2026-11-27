@@ -2,6 +2,8 @@
   "url": "https://slteval.github.io/",
   "name": "SLT-Eval",
   "year": "2027",
+  "name_variants": ["SLT-Eval", "SLTEval", "SLT Eval", "SLT-Eval 2027", "SLTEval 2027", "SLT Eval 2027", "SLTEval2027", "SLT-Eval2027"],
+  "keywords": ["slteval", "slt-eval", "slt eval", "slteval 2027", "slt-eval 2027", "slt eval 2027", "slteval2027", "slt-eval2027", "slt eval2027", "Speech and Language Technologies Evaluation Workshop", "speech evaluation", "language evaluation", "NLP evaluation", "COLING 2027 workshop", "shared tasks", "LTRC", "IIIT Hyderabad"],
   "workshop_name": "1st Speech and Language Technologies Evaluation Workshop",
   "email": "slteval.iiit@gmail.com",
   "social_image": "assets/img/slteval-2027-social.jpg",
