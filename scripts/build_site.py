@@ -76,6 +76,10 @@ def build_outputs(root=ROOT):
     submission = next(row for row in data['dates']['papers'] if row.get('id') == 'submission')
     date = datetime.strptime(submission['date'], '%b %d, %Y').date()
     deadline = {'iso': date.isoformat(), 'long': f'{date:%B} {date.day}, {date.year}'}
+    # Keep the original home identifier; route counters are never renamed by labels.
+    visit_counters = {p['route']: 'slteval.github.io' +
+                      ('' if p['route'] == 'home' else '/' + p['route'] + '/index.html')
+                      for p in pages}
     outputs, routes = {}, set()
     for page in pages:
         route = page['route']
@@ -85,7 +89,7 @@ def build_outputs(root=ROOT):
         if len(page['social_description']) > 125:
             raise ValueError(f'Social description is too long: {route}')
         canonical = site['url'] + ('' if route == 'home' else route + '/')
-        context = dict(data, page=page, paper_deadline=deadline,
+        context = dict(data, page=page, paper_deadline=deadline, visit_counters=visit_counters,
                        root='./' if route == 'home' else '../', canonical=canonical,
                        social_image=site['url'] + site['social_image'],
                        structured_data=structured_data(site, page, canonical))

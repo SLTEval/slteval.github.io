@@ -72,3 +72,54 @@ document.querySelectorAll('img[data-fallback]').forEach(photo => {
   photo.addEventListener('error', showPlaceholder, { once: true });
   if (photo.complete && photo.naturalWidth === 0) showPlaceholder();
 });
+
+// Count only this page, then sum read-only statistics for every current route.
+const visitCounters = document.querySelector('[data-visit-counters]');
+const visitBeacon = document.querySelector('#visit-beacon');
+if (visitCounters && visitBeacon) {
+  const readVisits = async identifier => {
+    const url = new URL('https://img.shields.io/badge/dynamic/json');
+    url.search = new URLSearchParams({
+      url: 'https://hits.sh/api/urns/' + identifier,
+      query: '$.total', label: 'visits', cacheSeconds: '300'
+    }).toString();
+    const response = await fetch(url, {
+      credentials: 'omit', referrerPolicy: 'no-referrer',
+      signal: AbortSignal.timeout(10000)
+    });
+    if (!response.ok) throw new Error('Counter unavailable');
+    const svg = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
+    const title = svg.querySelector('title')?.textContent || '';
+    // The statistics API returns 404 until a page receives its first visit.
+    if (title === 'visits: resource not found') return 0;
+    const match = /^visits: (\d+)$/.exec(title);
+    if (!match || !Number.isSafeInteger(Number(match[1]))) throw new Error('Invalid count');
+    return Number(match[1]);
+  };
+  const showVisits = async () => {
+    const total = visitCounters.querySelector('[data-visit-total]');
+    const current = visitCounters.querySelector('[data-visit-current]');
+    try {
+      const identifiers = JSON.parse(visitCounters.dataset.visitCounters);
+      const entries = Object.entries(identifiers);
+      const results = await Promise.allSettled(entries.map(async ([route, identifier]) =>
+        [route, await readVisits(identifier)]));
+      const counts = Object.fromEntries(results.filter(result => result.status === 'fulfilled')
+        .map(result => result.value));
+      const pageCount = counts[visitCounters.dataset.visitPage];
+      current.textContent = pageCount === undefined ? '—' : pageCount.toLocaleString('en');
+      if (results.some(result => result.status === 'rejected')) throw new Error('Incomplete totals');
+      const siteCount = Object.values(counts).reduce((sum, count) => sum + count, 0);
+      total.textContent = siteCount.toLocaleString('en');
+    } catch {
+      total.textContent = '—';
+      visitCounters.title = 'Visit totals temporarily unavailable; please try again later';
+    }
+  };
+  if (visitBeacon.complete) {
+    showVisits();
+  } else {
+    visitBeacon.addEventListener('load', showVisits, { once: true });
+    visitBeacon.addEventListener('error', showVisits, { once: true });
+  }
+}

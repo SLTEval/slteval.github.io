@@ -34,7 +34,9 @@
 .footer-contact-note{margin-top:14px;color:#bdc9d8;font-size:.9rem}
 .footer-bottom{border-top:1px solid rgba(227,233,240,.18);padding-block:20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#bdc9d8;font-size:.875rem}
 .footer-counters{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:12px}
-.visitor-counter{display:block;height:20px;width:auto;max-width:100%}
+.visitor-counter{display:inline-flex;height:20px;max-width:100%;overflow:hidden;border-radius:3px;font:11px/20px Verdana,Geneva,sans-serif;color:var(--footer-light)}
+.visitor-counter>span{padding-inline:6px}
+.visitor-counter [data-visit-total],.visitor-counter [data-visit-current]{background:var(--gold);color:var(--navy);font-variant-numeric:tabular-nums}
 @media(min-width:641px)and(max-width:900px){.footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-intro{grid-column:1/-1}}
 
 @media(min-width:992px)and(max-width:1160px){.wrap{width:calc(100% - 48px)}.site-navbar .navbar-nav{gap:13px}.site-navbar .nav-link{font-size:.8rem}.brand{font-size:1.08rem}.nav-wrap{gap:15px}.content-sidebar{gap:40px}}
@@ -263,5 +265,3 @@ h2{font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:18px;letter-spacing:-.025em}
   .about-copy .topic-list{padding-inline:16px}
   .home-highlights{grid-template-columns:minmax(0,1fr);gap:32px}
 }
-
-.home-visitor-counters{display:block;max-width:100%;height:auto;fill:var(--footer-light);font:11px Verdana,Geneva,sans-serif}

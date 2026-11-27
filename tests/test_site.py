@@ -150,32 +150,23 @@ class SiteTests(unittest.TestCase):
                                 self.assertIn(unquote(url.fragment), {a.get('id') for _, a in Document(target.read_text()).elements})
 
     def test_visit_counters_preserve_site_history_and_separate_pages(self):
-        page_identifiers = set()
+        expected = {'home' if name == 'index.html' else name.split('/')[0]:
+                    'slteval.github.io' + ('' if name == 'index.html' else '/' + name)
+                    for name in self.pages}
         for name, html in self.pages.items():
-            counters = [attrs for tag, attrs in Document(html).elements
-                        if tag == 'img' and attrs.get('class') == 'visitor-counter']
+            elements = Document(html).elements
             with self.subTest(page=name):
-                if name == 'index.html':
-                    self.assertEqual(counters, [])
-                    elements = Document(html).elements
-                    images = [attrs for tag, attrs in elements if tag == 'image' and attrs.get('id') == 'home-live-count']
-                    self.assertEqual(len(images), 1)
-                    image = urlsplit(images[0]['href'])
-                    self.assertEqual(image.netloc, 'hits.sh')
-                    self.assertEqual(image.path, '/slteval.github.io.svg')
-                    uses = [attrs for tag, attrs in elements if tag == 'use' and attrs.get('href') == '#home-live-count']
-                    self.assertEqual(len(uses), 2)
-                    self.assertNotIn('img.shields.io', html)
-                    page_identifiers.add(image.path)
-                else:
-                    self.assertEqual(len(counters), 2)
-                    total, page = (urlsplit(counter['src']) for counter in counters)
-                    self.assertEqual(total.netloc, 'hits.sh')
-                    self.assertEqual(total.path, '/slteval.github.io.svg')
-                    self.assertEqual(page.netloc, 'hits.sh')
-                    self.assertEqual(page.path, '/slteval.github.io/' + name + '.svg')
-                    page_identifiers.add(page.path)
-        self.assertEqual(len(page_identifiers), len(self.pages))
+                footer = next(attrs for _, attrs in elements if 'data-visit-counters' in attrs)
+                self.assertEqual(json.loads(footer['data-visit-counters']), expected)
+                page = 'home' if name == 'index.html' else name.split('/')[0]
+                self.assertEqual(footer['data-visit-page'], page)
+                beacons = [attrs for tag, attrs in elements if tag == 'img' and attrs.get('id') == 'visit-beacon']
+                self.assertEqual(len(beacons), 1)
+                beacon = urlsplit(beacons[0]['src'])
+                self.assertEqual(beacon.netloc, 'hits.sh')
+                self.assertEqual(beacon.path, '/' + expected[page] + '.svg')
+                self.assertEqual(sum('data-visit-total' in attrs for _, attrs in elements), 1)
+                self.assertEqual(sum('data-visit-current' in attrs for _, attrs in elements), 1)
 
     def test_footer_is_shared_by_every_route(self):
         with tempfile.TemporaryDirectory() as folder:
